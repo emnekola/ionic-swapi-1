@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SwapiService } from '../swapi.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
-
+  constructor(private swapiSvc: SwapiService) {
+    this.swapiSvc
+      .fetchPlanets()
+      .subscribe(
+        data => console.log(data)
+        , err => console.error(err)
+      );
+  }
 }
