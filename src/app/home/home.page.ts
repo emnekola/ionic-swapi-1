@@ -10,7 +10,8 @@ export class HomePage {
 
   planets = [];
 
-  constructor(private swapiSvc: SwapiService) {
+  constructor(private swapiSvc: SwapiService
+    , private bizLogicSvc: BizLogicService) {
     this.swapiSvc
       .fetchPlanets()
       .subscribe(
